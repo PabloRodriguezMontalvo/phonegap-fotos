@@ -28,7 +28,7 @@ angular.module("servicios",[]).
         function lectura(filesystem){
 
             filesystem.root.getFile(nombre,{create:false,exclusive:false},
-                leerFichero,error);            
+                leerFichero,error);
 
         }
         function leerFichero(fichero){

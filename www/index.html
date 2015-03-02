@@ -38,6 +38,14 @@
           </button>
 
       </ion-content>
+        <ion-content ng-controller="FotosController">
+            <button class="button button-stable" ng-click="sacarFoto()">
+                Sacar foto
+            </button>
+            <img style="width: 100%;height: auto;"
+                 ng-src="{{imagen.data}}">
+
+        </ion-content>
     </ion-pane>
   </body>
 </html>

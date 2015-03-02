@@ -1,4 +1,47 @@
 angular.module("servicios",[]).
+
+    factory('Camara',function($q){
+
+        return{
+
+            sacarFoto:function(){
+                var deferred=$q.defer();
+
+                if(navigator.camera){
+
+                    navigator.camera.getPicture(function(imagen){
+
+                        deferred.resolve(imagen);
+
+                    },function(err){
+
+                       deferred.reject(err.message);
+                    },{quality:50,
+                            destinationType:navigator.camera.DestinationType.DATA_URL/*FILE_URI*/}
+                    );
+
+                }
+                else{
+                    deferred.reject("No tengo acceso a la camara");
+                }
+
+               return deferred.promise;
+
+            }
+
+
+
+            
+
+
+        }
+
+
+
+
+
+    }).
+
     factory('Ficheros',function(){
 
         var datos;
